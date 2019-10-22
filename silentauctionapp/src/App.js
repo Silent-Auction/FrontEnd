@@ -4,6 +4,9 @@ import logo from './logo.svg';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap' ;
 import { FacebookLoginButton } from 'react-social-login-buttons';
 import { BrowserRouter as Router} from 'react-router-dom';
+import SignUp from './signup'
+import Route from 'react-router-dom/Route'
+
 
 function App() {
   return (
@@ -30,6 +33,10 @@ function App() {
       <span className="p-2"> | </span>
       <a href="/forgot-password">Forgot Password</a>
 
+
+      {/* <Route exact path="/" component={App} />
+      <Route
+        path="/signup"/> */}
       </div>
     </Form>
   );

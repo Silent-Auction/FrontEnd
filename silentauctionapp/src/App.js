@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import logo from './logo.svg';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap' ;
@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Link} from 'react-router-dom';
 import SignUp from './signup'
 // import Login from './loginForm';
 import Route from 'react-router-dom/Route'
+import axios from "axios";
 
 
 function Login(props){
@@ -14,9 +15,8 @@ function Login(props){
   return (
     <Form className="login-form">
       <h1 className="text-center">
-        <span className="font-weight-bold ">Silent Auction <br/>Login Page </span>
+        <span className="font-weight-bold ">Log In </span>
       </h1>
-      {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
       <FormGroup>
         <Label>Email</Label>
@@ -42,6 +42,29 @@ function Login(props){
 
 
 function App(props) {
+  const [auction, setAuction] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`https://silent-auction-bw.herokuapp.com/api/auctions/`)
+      .then(response => {
+        const auctions = response;
+        console.log(auctions);
+        setAuction(auctions);
+      })
+      .catch(error => {
+        console.log("error", error);
+      });
+  }, []);
+
+  axios.get('https://silent-auction-bw.herokuapp.com/api/auctions/:id')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
   return (
     <Form className="login-form">
       <h1 className="text-center">
@@ -73,6 +96,7 @@ function App(props) {
 |
         <Link className="font-weight-bold" to='/signup' > Sign Up </Link>
 
+        
         <Route exact path='/signup' component={SignUp}/>
         <Route exact path='/login' component={Login}/>
 

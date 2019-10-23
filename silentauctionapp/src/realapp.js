@@ -42,3 +42,46 @@
 // }
 
 // export default App;
+
+
+
+
+
+
+
+// <form>
+//     <div className="input-row">
+//         <label htmlFor="name">Name</label>
+//         <input 
+//         type="text"
+//         name="name"
+//         id="name"
+//         placeholder="Enter Name"
+//         onChange={handleChange}
+//         onBlur={handleBlur}
+//         value={values.name} />
+//     </div>
+//     <div className="input-row">
+//         <label htmlFor="email">Email</label>
+//         <input 
+//         type="text"
+//         name="name"
+//         id="name"
+//         placeholder="Enter Email"
+//         onChange={handleChange}
+//         onBlur={handleBlur}
+//         value={values.name} />
+//     </div>
+//     <div className="input-row">
+//         <label htmlFor="password">Password</label>
+//         <input 
+//         type="text"
+//         name="name"
+//         id="name"
+//         placeholder="Enter Password"
+//         onChange={handleChange}
+//         onBlur={handleBlur}
+//         value={values.name} />
+//     </div>
+    
+// </form>

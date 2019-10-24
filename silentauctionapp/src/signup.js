@@ -8,35 +8,6 @@ import axios from "axios";
 
 const SignUp = (props) => {
 
-    // handleSubmit(values, { setStatus }) {
-    //     axios
-    //       // values is our object with all our data on it.
-    //       .post("https://silent-auction-bw.herokuapp.com/api/auth/login", {
-    //         firstName: '',
-    //         lastName: '',
-    //         username: '',
-    //         password:''
-    //       })
-    //       .then(res => {
-    //         setStatus(res.data);
-    //       })
-    //       .catch(err => console.log(err.response));
-    //   };
-
-    //   handleSubmit(values, { setStatus }) {
-    //     axios
-    //       // values is our object with all our data on it.
-    //       .post("https://silent-auction-bw.herokuapp.com/api/auth/register", {
-    //         firstName: '',
-    //         lastName: '',
-    //         username: '',
-    //         password:''
-    //       })
-    //       .then(res => {
-    //         setStatus(res.data);
-    //       })
-    //       .catch(err => console.log(err.response));
-    //   };
     axios.post('https://silent-auction-bw.herokuapp.com/api/auth/login', {
         firstName: '',
         lastName: '',
@@ -85,7 +56,7 @@ const SignUp = (props) => {
 
 
   return (
-    <Formik initialValues={{ name: " " , email: " " }}>    
+    <Formik initialValues={{ name: " " , username: " " }}>    
         {({handleChange, values}) => (
             <Form className="save-wrapper">
             <h1 className="text-center">
@@ -100,7 +71,7 @@ const SignUp = (props) => {
                     <Label>Enter First Name: </Label>
                     <Input 
                     type="name" 
-                    placeholder="first name" 
+                    placeholder="First Name" 
                     onChange={handleChange}
                     id="1"  
                     />
@@ -108,7 +79,7 @@ const SignUp = (props) => {
                     <Label>Enter Last Name: </Label>
                     <Input 
                     type="name" 
-                    placeholder="last name" 
+                    placeholder="Last Name" 
                     onChange={handleChange} 
                     id="2"/>
                 </FormGroup>
@@ -118,14 +89,14 @@ const SignUp = (props) => {
                     type="username" 
                     id="username"
                     name="username"
-                    placeholder="username" 
+                    placeholder="Username" 
                     onChange={handleChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label>Enter Password</Label>
                     <Input 
                     type="password" 
-                    placeholder="password" 
+                    placeholder="Password" 
                     onChange={handleChange}
                     id="password" />
                 </FormGroup>

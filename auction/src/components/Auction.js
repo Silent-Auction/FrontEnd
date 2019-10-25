@@ -30,13 +30,14 @@ export default function AuctionList() {
       .catch(err => console.log(err.response));
   };
 
-  const editAuction = friendObj => {
+  const editAuction2 = friendObj => {
     setEditingAuction(friendObj);
   };
 
   return (
     <div>
       <NewAuction
+      auction={auction}
         editAuction={editAuction}
         setAuction={setAuction}
         setEditingAuction={setEditingAuction}
@@ -45,10 +46,13 @@ export default function AuctionList() {
         return (
           <div key={friendObj.id}>
             {" "}
-            <p className='name'>{friendObj.name}</p>
-            <p className='age'>Age: {friendObj.age}</p>
-            <p className='email'>Email: {friendObj.email}</p>
-            <button onClick={() => editAuction(friendObj)}>Edit</button>{" "}
+            <p className='name'>Name: {friendObj.name}</p>
+            <p className='starting_price'>Starting Bid: ${friendObj.starting_price}</p>
+            <p className='date_starting'>Start Date: {friendObj.date_starting}</p>
+            <p className='date_ending'>End Date: {friendObj.date_ending}</p>
+            <p className='description'>Item Description: {friendObj.description}</p>
+            <p className='image'>Image: {friendObj.image}</p>
+            <button onClick={() => editAuction2(friendObj)}>Edit</button>{" "}
             <button onClick={() => deleteAuction(friendObj.id)}>Remove</button>{" "}
           </div>
         );

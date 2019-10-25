@@ -2,20 +2,20 @@ import React from 'react';
 import './App.css';
 import Register from './components/Register.js';
 import Login from './components/Login.js';
-import NewAuction from './components/AuctionEdit.js';
+import AuctionList from './components/Auction.js';
 
 function App() {
   return (
     <div className="App">
-      <div>
-      <Register />
-      </div>
-      <div>
+      {/* <div> */}
+      {/* <Register /> */}
+      {/* </div>
+      <div> */}
       <Login />
-      </div>
-      <div>
-      <NewAuction />
-      </div>
+      {/* </div>
+      <div> */}
+      <AuctionList />
+      {/* </div> */}
     </div>
   );
 }

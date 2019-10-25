@@ -4,6 +4,8 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 export default function NewAuction(props) {
   const [form, setForm] = React.useState({ name: "", starting_price: "", date_starting: "", date_ending: "", description: "", image: ("") });
 
+console.log(props);
+
   React.useEffect(() => {
     if (props.editAuction) {
       setForm({
@@ -32,7 +34,7 @@ export default function NewAuction(props) {
         .then(res => {
           console.log("EDIT", res);
           props.setAuction(res.data);
-          setForm({ name: "", starting_price: "", date_starting: "", date_ending: "", description: "", image: ("") });
+          setForm({ name: "", starting_price: "", date_starting: "", date_ending: "", description: "", image: "" });
           props.editAuction(null);
         });
     } else {
@@ -40,16 +42,16 @@ export default function NewAuction(props) {
         .post("/auctions", form)
         .then(res => {
           console.log("POST", res);
-          props.setAuction(res.data);
-          setForm({ name: "", starting_price: "", date_starting: "", date_ending: "", description: "", image: ("") });
+          props.setAuction([...props.auction, res.data]);
+          setForm({ name: "", starting_price: "", date_starting: "", date_ending: "", description: "", image: "" });
         })
-        .catch(err => console.log(err.response));
+        .catch(err => console.log(err));
     }
   };
 
   const closeEdit = e => {
     e.preventDefault();
-    props.editAuction(null);
+    props.editAuction2(null);
   };
 
   return (
